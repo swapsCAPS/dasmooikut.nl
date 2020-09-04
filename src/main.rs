@@ -2,7 +2,7 @@
 
 #[macro_use] extern crate rocket;
 
-use rocket::http::RawStr;
+use rocket::http::{ RawStr, uri::Uri };
 use rocket_contrib::{
     templates::Template,
     serve::StaticFiles,
@@ -19,7 +19,8 @@ fn root() -> Template {
 
 #[get("/<ding>")]
 fn ding(ding: &RawStr) -> Template {
-    let capitalized = case::capitalize(ding.as_str(), true);
+    let decoded = Uri::percent_decode(ding.as_bytes()).unwrap_or_default();
+    let capitalized = case::capitalize(&decoded, true);
     let mut context = HashMap::new();
     context.insert("main", format!("{}... Mooi kut.", capitalized));
     Template::render("index", &context)
