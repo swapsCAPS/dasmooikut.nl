@@ -2,7 +2,10 @@
 
 #[macro_use] extern crate rocket;
 
-use rocket::http::{ RawStr, uri::Uri };
+use rocket::http::{
+    RawStr,
+    uri::Uri
+};
 use rocket_contrib::{
     templates::Template,
     serve::StaticFiles,

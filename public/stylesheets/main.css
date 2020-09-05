@@ -21,19 +21,38 @@ body {
   font-weight: 400;
 }
 
-.main {
+h1 {
+  font-size: 39pt;
+}
+
+h2 {
+  font-size: 24pt;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
+  margin: auto;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 16px;
+  max-width: 900px;
+}
+
+.main {
+  margin: auto;
+  max-width: 700px;
 }
 
 .sub-text {
-  position: fixed;
-  right: 1rem;
-  bottom: 0.5rem;
+  position: absolute;
+  padding: inherit;
+  right: 0;
+  bottom: 0;
+  line-height: .8;
 }
+
