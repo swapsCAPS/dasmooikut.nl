@@ -8,9 +8,7 @@ RUN apt update && apt install -y curl
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain nightly -y
 COPY Cargo.lock Cargo.toml /
 COPY src /src
-COPY scripts /scripts
 RUN $HOME/.cargo/bin/cargo build --release
-RUN scripts/download-and-import.sh
 
 # ---
 
